@@ -1,0 +1,25 @@
+{
+  "name": "testdouble-nock",
+  "version": "0.1.0",
+  "description": "testdouble.js extension to add support for nock request mocking",
+  "author": {
+    "name": "Joshua Starkey",
+    "email": "joshua@testdouble.com",
+    "url": "http://testdouble.com"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "teenytest --helper test/helper.js \"test/**/*.test.js\""
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "assert": "^1.4.1",
+    "lodash": "^4.17.10",
+    "request": "^2.86.0",
+    "teenytest": "^5.1.1"
+  },
+  "optionalDependencies": {
+    "nock": "^9.2.6",
+    "testdouble": "^3.8.1"
+  }
+}
