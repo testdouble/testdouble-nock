@@ -17,7 +17,7 @@ global.nock = require('nock')
 require('testdouble-nock')(td, nock)
 ```
 
-For an example of a helper that sets up testdouble.js, testdouble-jest, and ensures td.reset() is called after each test, look at [test/helper.js](/test/helper.js) in this repo.
+For an example of a helper that sets up testdouble.js, testdouble-nock, and ensures td.reset() is called after each test, look at [test/helper.js](/test/helper.js) in this repo.
 
 ## Usage
 
