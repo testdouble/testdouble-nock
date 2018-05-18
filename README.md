@@ -38,3 +38,19 @@ describe('My API test', () => {
   })
 })
 ```
+
+You can also verify that a call has taken place using `td.verify`:
+
+```JavaScript
+describe('My API test', () => {
+  it('should return a 200 for status', (done) => {
+    const myApi = td.api('http://www.my-api.com')
+
+    request.get('http://www.my-api.com/status', (req, res, body) => {
+      td.verify(myApi.get('/status'))
+
+      done()
+    })
+  })
+})
+```
