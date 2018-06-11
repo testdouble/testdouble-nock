@@ -15,6 +15,7 @@ module.exports = {
 
     td.when(api.get('/api')).thenReturn('test')
 
+    // eslint-disable-next-line handle-callback-err
     request('https://example.com/api', (err, res, body) => {
       assert.equal(body, 'test')
 
@@ -27,6 +28,7 @@ module.exports = {
 
     td.when(apiOne.get('/api')).thenReturn('join')
 
+    // eslint-disable-next-line handle-callback-err
     request('https://example.com/api', (err, res, body) => {
       request(`https://testdouble.com/${body}`, () => {
         td.verify(apiTwo.get('/join'))
@@ -40,6 +42,7 @@ module.exports = {
 
     td.when(api.get('/resources')).thenReturn('follow-up')
 
+    // eslint-disable-next-line handle-callback-err
     request('https://example.com/resources', (err, res, body) => {
       request(`https://example.com/${body}`, () => {
         td.verify(api.get('/follow-up'))

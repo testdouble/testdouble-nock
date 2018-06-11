@@ -1,6 +1,3 @@
-const { find, includes } = require('lodash')
-const store = require('testdouble/lib/store').default
-
 const supportedHttpVerbs = [
   'get',
   'post',
@@ -28,12 +25,12 @@ module.exports = function (td, nock) {
       invocationBody = JSON.parse(body)
       return body
     }
-    
+
     const interceptAndValidateRequests = (verb) => (route) => {
       invocationRoute = route
       return true
     }
-    
+
     const replyToStubbing = (verb) => () => {
       let result
       if (invocationBody) {
@@ -43,7 +40,7 @@ module.exports = function (td, nock) {
       }
 
       return result
-    }    
+    }
 
     for (let verb of supportedHttpVerbs) {
       scope.filteringRequestBody(captureRequestBody)
