@@ -17,6 +17,17 @@ global.nock = require('nock')
 require('testdouble-nock')(td, nock)
 ```
 
+We'll want to clear out our stubbings after each test, so add something like this to your test runner's beforeEach() hook:
+
+```js
+beforeEach: function () {
+  td.reset.onNextReset(() => nock.cleanAll())
+},
+afterEach: function () {
+  td.reset() // <-- you should already be doing this!
+}
+```
+
 For an example of a helper that sets up testdouble.js, testdouble-nock, and ensures td.reset() is called after each test, look at [test/helper.js](/test/helper.js) in this repo.
 
 ## Usage
