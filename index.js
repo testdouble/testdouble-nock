@@ -19,6 +19,7 @@ module.exports = function (td, nock) {
 
     const captureRequestBody = (body) => {
       if (!body) {
+        invocationBody = undefined
         return
       }
 

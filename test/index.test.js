@@ -50,5 +50,26 @@ module.exports = {
         done()
       })
     })
+  },
+  'it should support verifying multiple calls on the same instance': (done) => {
+    const api = td.api('https://example.com')
+
+    // eslint-disable-next-line handle-callback-err
+    request.post({
+      uri: 'https://example.com/resources',
+      json: {
+        message: 'Example message'
+      }
+    }, () => {
+      request(`https://example.com/changelog`, () => {
+        td.verify(api.post('/resources', {
+          message: 'Example message'
+        }))
+
+        td.verify(api.get('/changelog'))
+
+        done()
+      })
+    })
   }
 }
